@@ -74,8 +74,8 @@
 											</li>
 										@else
 											<li class="menu-item menu-item-has-children parent" >
-												<i class="fi-rs-user"></i>
-												<a title="My Account" href="#">My Account ({{ Auth::user()->name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+												
+												<a title="My Account" href="#"><i class="fi-rs-user"></i>My Account ({{ Auth::user()->name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 												<ul class="submenu curency" >
 													<li class="menu-item" >
 														<a title="Dashboard" href="#">Dashboard</a>
