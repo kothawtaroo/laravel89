@@ -5,6 +5,7 @@ use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\ContactComponent;
+use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\Staff\StaffDashboardComponent;
@@ -32,7 +33,7 @@ Route::get('/contact',ContactComponent::class)->name('contact');
 Route::get('/shop',ShopComponent::class)->name('shop');
 Route::get('/cart',CartComponent::class)->name('shop.cart');
 Route::get('/checkout',CheckoutComponent::class)->name('shop.checkout');
-
+Route::get('/product/{slug}',DetailsComponent::class)->name('product.details');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
