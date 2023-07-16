@@ -73,7 +73,7 @@
 						<div class="wrap-login-item ">						
 							<div class="login-form form-item form-stl">
                                 <x-auth-session-status class="mb-4" :status="session('status')" />
-                                <x-jet-validation-errors class="mb-4" />
+                                <x-auth-validation-errors class="mb-4" :errors="$errors" />
 								<form name="frm-login" method="POST" action="{{ route('login') }}">
                                     @csrf
 									<fieldset class="wrap-title">
