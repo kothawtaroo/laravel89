@@ -37,8 +37,7 @@
 						</div>
 						<div class="topbar-menu right-menu">
 							<ul>
-								<li class="menu-item" ><a title="Register or Login" href="{{route('login')}}">Login</a></li>
-								<li class="menu-item" ><a title="Register or Login" href="{{('register')}}">register</a></li>
+								
 								<li class="menu-item lang-menu menu-item-has-children parent">
 									<a title="English" href="#"><span class="img label-before"><img src="assets/images/lang-en.png" alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="submenu lang" >
@@ -63,6 +62,59 @@
 									</ul>
 								</li>
 							</ul>
+							@if(Route::has('login'))
+									@auth
+										@if(Auth::user()->utype ==='ADM')
+											<li class="menu-item menu-item-has-children parent" >
+												<a title="My Account" href="#">My Account ({{ Auth::user()->name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+												<ul class="submenu curency" >
+													<li class="menu-item" >
+														<a title="Dashboard" href="{{ route('admin.dashboard') }}">Dashboard</a>
+													</li>
+													<li class="menu-item">
+														<a title="Categories" href="{{ route('admin.categories') }}">Categories</a>
+													</li>
+													<li class="menu-item">
+														<a title="Products" href="{{ route('admin.products') }}">All Products</a>
+													</li>
+													<li class="menu-item">
+														<a title="Manage Home Slider" href="{{ route('admin.homeslider') }}">Manage Home Slider</a>
+													</li>
+													<li class="menu-item">
+														<a title="Manage Home Categories" href="{{ route('admin.homecategories') }}">Manage Home Categories</a>
+													</li>
+													<li class="menu-item">
+														<a title="Sale Setting" href="{{ route('admin.sale') }}">Sale Setting</a>
+													</li>
+													<li class="menu-item">
+														<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+													</li>
+														<form id='logout-form' method="POST" action="{{ route('logout') }}">
+															@csrf															
+														</form>													
+												</ul>
+											</li>
+										@else
+											<li class="menu-item menu-item-has-children parent" >
+												<a title="My Account" href="#">My Account ({{ Auth::user()->name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+												<ul class="submenu curency" >
+													<li class="menu-item" >
+														<a title="Dashboard" href="{{ route('user.dashboard') }}">Dashboard</a>
+													</li>
+													<li class="menu-item">
+														<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+													</li>
+														<form id='logout-form' method="POST" action="{{ route('logout') }}">
+															@csrf															
+														</form>														
+												</ul>
+											</li>
+										@endif
+									@else
+										<li class="menu-item" ><a title="Register or Login" href="{{ route('login') }}">Login</a></li>
+										<li class="menu-item" ><a title="Register or Login" href="{{ route('register') }}">Register</a></li>
+									@endif
+								@endif
 						</div>
 					</div>
 				</div>
