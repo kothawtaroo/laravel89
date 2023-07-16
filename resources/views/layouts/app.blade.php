@@ -65,10 +65,10 @@
 									@auth
 										@if(Auth::user()->utype ==='ADM')
 											<li class="menu-item menu-item-has-children parent" >											    
-												<a title="My Account" href="#"><i class="fa fa-user"></i> : My Account ({{ Auth::user()->name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+												<a title="My Account" href="#"><i class="fa fa-user"></i> : ADMIN ({{ Auth::user()->name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 												<ul class="submenu curency" >
 													<li class="menu-item" >
-														<a title="Dashboard" href="{{ route ('admin.dashboard') }}">Dashboard</a>
+														<a title="Dashboard" href="{{ route ('admin.dashboard') }}">Admin Dashboard</a>
 													</li>													
 													<li class="menu-item">
 														<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
@@ -80,7 +80,7 @@
 											</li>
 										@elseif (Auth::user()->utype ==='STAFF')
 											<li class="menu-item menu-item-has-children parent" >													
-												<a title="My Account" href="#"><i class="fa fa-user"></i> : My Account ({{ Auth::user()->name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+												<a title="My Account" href="#"><i class="fa fa-user"></i> : STAFF ({{ Auth::user()->name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 												<ul class="submenu curency" >
 													<li class="menu-item" >
 														<a title="Dashboard" href="{{ route ('staff.dashboard') }}">Dashboard</a>
