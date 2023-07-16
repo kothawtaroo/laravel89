@@ -7,6 +7,7 @@ use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ShopComponent;
+use App\Http\Livewire\Staff\StaffDashboardComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -35,9 +36,16 @@ Route::get('/checkout',CheckoutComponent::class)->name('shop.checkout');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
+
 Route::middleware(['auth'])->group(function(){
     Route::get('/user/dashboard',UserDashboardComponent::class)->name('user.dashboard');
+    
 });
+
+Route::middleware(['auth'])->group(function(){
+    Route::get('/staff/dashboard',StaffDashboardComponent::class)->name('staff.dashboard');
+});
+
 Route::middleware(['auth','authadmin'])->group(function(){
     Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin.dashboard');
 });

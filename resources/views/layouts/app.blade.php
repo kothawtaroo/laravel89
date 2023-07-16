@@ -50,26 +50,41 @@
 										
 									</ul>
 								</li>
+
 								<li class="menu-item menu-item-has-children parent" >
-									<a title="MMK" href="#">MMK (KS)<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+									{{-- <a title="MMK" href="#">MMK (KS)<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="submenu curency" >
 										
 										<li class="menu-item" >
 											<a title="Dollar (USD)" href="#">Dollar (USD)</a>
 										</li>
-									</ul>
+									</ul> --}}
 								</li>
+
 								@if(Route::has('login'))
 									@auth
 										@if(Auth::user()->utype ==='ADM')
-											<li class="menu-item menu-item-has-children parent" >
-											    
+											<li class="menu-item menu-item-has-children parent" >											    
 												<a title="My Account" href="#"><i class="fa fa-user"></i> : My Account ({{ Auth::user()->name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 												<ul class="submenu curency" >
 													<li class="menu-item" >
 														<a title="Dashboard" href="{{ route ('admin.dashboard') }}">Dashboard</a>
+													</li>													
+													<li class="menu-item">
+														<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 													</li>
-													
+														<form id='logout-form' method="POST" action="{{ route('logout') }}">
+															@csrf															
+														</form>													
+												</ul>
+											</li>
+										@elseif (Auth::user()->utype ==='STAFF')
+											<li class="menu-item menu-item-has-children parent" >													
+												<a title="My Account" href="#"><i class="fa fa-user"></i> : My Account ({{ Auth::user()->name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+												<ul class="submenu curency" >
+													<li class="menu-item" >
+														<a title="Dashboard" href="{{ route ('staff.dashboard') }}">Dashboard</a>
+													</li>													
 													<li class="menu-item">
 														<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 													</li>
@@ -79,8 +94,7 @@
 												</ul>
 											</li>
 										@else
-											<li class="menu-item menu-item-has-children parent" >
-												
+											<li class="menu-item menu-item-has-children parent" >												
 												<a title="My Account" href="#"><i class="fa fa-user"></i>: My Account ({{ Auth::user()->name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 												<ul class="submenu curency" >
 													<li class="menu-item" >
