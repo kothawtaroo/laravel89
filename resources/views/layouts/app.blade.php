@@ -20,12 +20,7 @@
 <body class="home-page home-01 ">
 
 	<!-- mobile menu -->
-    <div class="mercado-clone-wrap">
-        <div class="mercado-panels-actions-wrap">
-            <a class="mercado-close-btn mercado-close-panels" href="#">x</a>
-        </div>
-        <div class="mercado-panels"></div>
-    </div>
+   
 
 	<!--header-->
 	<header id="header" class="header header-style-1">
@@ -42,8 +37,8 @@
 						</div>
 						<div class="topbar-menu right-menu">
 							<ul>
-								<li class="menu-item" ><a title="Register or Login" href="login.html">Login</a></li>
-								<li class="menu-item" ><a title="Register or Login" href="register.html">Register</a></li>
+								<li class="menu-item" ><a title="Register or Login" href="{{route('login')}}">Login</a></li>
+								<li class="menu-item" ><a title="Register or Login" href="{{('register')}}">register</a></li>
 								<li class="menu-item lang-menu menu-item-has-children parent">
 									<a title="English" href="#"><span class="img label-before"><img src="assets/images/lang-en.png" alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="submenu lang" >
