@@ -31,7 +31,7 @@ Route::get('/',HomeComponent::class)->name('home.index');
 Route::get('/about',AboutComponent::class)->name('about');
 Route::get('/contact',ContactComponent::class)->name('contact');
 Route::get('/shop',ShopComponent::class)->name('shop');
-Route::get('/cart',CartComponent::class)->name('shop.cart');
+Route::get('/cart',CartComponent::class)->name('product.cart');
 Route::get('/checkout',CheckoutComponent::class)->name('shop.checkout');
 Route::get('/product/{slug}',DetailsComponent::class)->name('product.details');
 // Route::get('/dashboard', function () {
